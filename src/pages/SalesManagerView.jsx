@@ -1,0 +1,18 @@
+import * as React from 'react';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
+import SalesManager from '../components/admin/SalesManager/SalesManager';
+import AdminLayout from '../layout/AdminLayout'
+
+
+export default function EmployeView() {
+  return (
+    <AdminLayout>
+    <Grid item xs={12}>
+      <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+          <SalesManager/>
+      </Paper>
+    </Grid>
+  </AdminLayout>
+  );
+}
