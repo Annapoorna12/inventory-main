@@ -76,7 +76,7 @@
   position: relative;
 }
 
-.search .cart span {
+.container .cart span {
   position: absolute;
   top: -10px;
   right: 0;
@@ -89,8 +89,12 @@
   color: #fff;
 }
 
-.search .f_flex {
+.container .f_flex {
   justify-content: end;
+}
+
+.container{
+  margin-left: 0;
 }
 
 /* Search Part CSS */
@@ -179,6 +183,31 @@ button {
   box-shadow: rgb(43 52 69 / 10%) 0 4px 16px;
 }
 
+
+.container {
+  display: flex; /* Use flexbox layout */
+  justify-content: space-between; /* Distribute items evenly along the main axis */
+  align-items: center; /* Align items vertically */
+}
+
+.menu-items ul {
+  list-style-type: none; /* Remove default list styles */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+  display: flex; /* Use flexbox layout */
+}
+
+.menu-items ul li {
+  margin-right: 10px; /* Add spacing between list items */
+}
+
+.toggle {
+  display: none; /* Hide toggle button by default */
+}
+/* .hidden{
+  display:none;
+} */
+
 @media only screen and (max-width: 768px) {
   .left-row,
   .right-row {
@@ -192,8 +221,17 @@ button {
     font-size: 0.8rem;
   }
 
+  .menu-items .icon-circle{
+    background-color: #0f3460;
+  }
+
+  .menu-items .link .f_flex .capitalize{
+    display:hidden;
+  }
+
   .link {
-    gap: 1rem;
+    /* gap: 1rem; */
+    display: none;
   }
 
   .nav-links-MobileMenu {
@@ -226,4 +264,41 @@ button {
   .search .logo img {
     width: 6rem;
   }
+  .toggle {
+    display: block; /* Show toggle button */
+  }
+  
+  .menu-items ul {
+    display: ${mobileMenu ? "block" : "none"}; /* Hide menu by default on mobile */
+    /* flex-direction: column; Stack list items vertically */
+    /* position: absolute; /* Position menu absolutely */
+    /* top: 50px; /* Adjust top position */
+    /* left: 0; Align to the left */ 
+    /* width: 100%; Take full width */
+    /* background-color: #fff; Background color */
+    /* padding: 10px 0; Add padding */ 
+    /* z-index: 1; Ensure it's above other content */
+  }
+  .mobile-menu-open .menu-items {
+    display: none;
+  }
+  
+  .mobile-menu-open .link {
+    display: none;
+  }
+  
+  .mobile-menu-open .toggle {
+    display: block;
+  }
+
+  .menu-items ul li {
+    margin-right: 0; /* Remove margin */
+  }
+
+  .toggle i {
+    font-size: 24px; /* Adjust icon size */
+  }
+
+  
+
 }

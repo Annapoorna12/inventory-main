@@ -13,8 +13,8 @@ const Header = ({ cartItems }) => {
       {/* <Search cartItems={cartItems} />
       <Navbar /> */}
       <div className="header-container" style={{ display: 'flex', alignItems: 'center' }} >
-        <Search cartItems={cartItems} />
-        {/* <Navbar /> */}
+        <Search />
+        <Navbar cartItems={cartItems} />
       </div>
     </>
   );
