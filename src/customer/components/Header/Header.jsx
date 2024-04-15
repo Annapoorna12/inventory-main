@@ -12,7 +12,7 @@ const Header = ({ cartItems }) => {
       {/* <Head /> */}
       {/* <Search cartItems={cartItems} />
       <Navbar /> */}
-      <div className="header-container" style={{ display: 'flex', alignItems: 'center' }} >
+      <div className="header-container" style={{ display: 'flex', alignItems: 'center', backgroundColor:'white', height:'125px' }} >
         <Search />
         <Navbar cartItems={cartItems} />
       </div>

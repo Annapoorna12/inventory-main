@@ -1,6 +1,18 @@
-.loginform {
+body {
   min-height: 100vh;
-  width: 50%;
+  margin: 0;
+  padding: 0;
+  background-image: url("./car22.png"); /* Replace "./car22.png" with the path to your image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginform {
+  min-height: 65vh;
+  width: relative;
   background-color: #f1efef;
   margin: 50px auto;
   border-radius: 10px;
@@ -9,12 +21,12 @@
 .heading-login {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap:1rem;
 }
 
 .container-login {
   height: 100%;
-  padding: 40px;
+  padding: 30px;
 }
 
 .wrapper input {
