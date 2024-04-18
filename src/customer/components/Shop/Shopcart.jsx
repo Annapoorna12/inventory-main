@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
+
 const Shopcart = ({ shopItems, addToCart,userID }) => {
   
   const handleAddtoCart = (productID)=>{
@@ -14,7 +15,7 @@ const Shopcart = ({ shopItems, addToCart,userID }) => {
         return (
           <div className="box" key={index}>
             <div className="product mtop">
-              <div className="img">
+              <div className="image">
                 {/* <span className="discount">{product.discount}% Off</span> */}
                 <img src={`../../../../src/uploads/${product.productImage}`} alt="" />
                 {/* <div className="product-like">

@@ -229,8 +229,8 @@ button {
     background-color: #0f3460;
   }
 
-  .menu-items .link .f_flex .capitalize{
-    display:hidden;
+  .menu-items .link{
+    display:none;
   }
 
   .link {

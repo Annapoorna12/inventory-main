@@ -59,9 +59,9 @@ const Shop = ({ shopItems, addToCart }) => {
         <div className="container shop-container">
           {/* <Categ shopItems={products} addToCart={AddtoCart} /> */}
           <div className="shop-main">
-            <div className="heading heading-view-all">
+            <div className="heading heading-view-all" style={{paddingTop:'20px'}}>
               <div className="heading-left row f_flex">
-                <h2>Products</h2>
+                <h2 style={{paddingLeft:'30px'}}>Products</h2>
               </div>
               <div onClick={handleRedirect} className="heading-right row">
                 <span>View All</span>

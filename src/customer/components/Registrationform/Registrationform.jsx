@@ -72,8 +72,8 @@ const Registrationform = () => {
             </p>
           </div>
           <form onSubmit={formik.handleSubmit} className="form" action="">
-            <label className="label name">
-              Name
+            <label className="label name" style={{paddingLeft:0}}>
+              Full Name <span></span>
               <input
                 type="text"
                 name="name"
@@ -84,7 +84,7 @@ const Registrationform = () => {
               ) : null}
             </label>
             <label className="label">
-              Email
+              Email id
               <input
                 type="email"
                 name="email"

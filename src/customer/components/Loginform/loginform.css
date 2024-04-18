@@ -68,11 +68,12 @@ body {
 
 .submit-btn {
   height: 50px;
-  width: 150px;
+  width: 120px;
   margin-top: 40px;
   background-color: lightblue;
   border-radius: 10px;
   font-weight: 500;
+  font-size: medium;
 }
 
 .submit-btn:hover {
