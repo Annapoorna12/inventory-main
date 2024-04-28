@@ -18,6 +18,8 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import LogoutIcon from "@mui/icons-material/Logout";
 import Popover from "@mui/material/Popover";
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 import { mainListItems } from "../components/listItems";
 import { useAuth } from "../hooks/useAuth";
@@ -71,12 +73,19 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 const defaultTheme = createTheme();
+const dayTheme = createTheme();
+const nightTheme = createTheme({
+  palette: {
+    mode: "dark", // Set theme to dark mode
+  },
+});
 
 export default function AdminLayout({ children }) {
   const { logout } = useAuth();
   const [notifications, setNotifications] = React.useState([]);
   const [open, setOpen] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [theme, setTheme] = React.useState(dayTheme); // State for theme selection
 
   const toggleDrawer = () => {
     setOpen(!open);
@@ -113,9 +122,13 @@ export default function AdminLayout({ children }) {
   const openPopover = Boolean(anchorEl);
   const popoverId = openPopover ? "notification-popover" : undefined;
 
+  const toggleTheme = () => {
+    setTheme(theme === dayTheme ? nightTheme : dayTheme); // Toggle between day and night theme
+  };
+
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <Box sx={{ display: "flex" }}>
+    <ThemeProvider theme={theme}> {/* Use dynamic theme */}
+      <Box sx={{ display: "flex", height: "100vh", width: "100vw" }}>
         <CssBaseline />
         <AppBar position="absolute" open={open}>
           <Toolbar
@@ -153,6 +166,9 @@ export default function AdminLayout({ children }) {
               <Badge color="secondary">
                 <LogoutIcon />
               </Badge>
+            </IconButton>
+            <IconButton color="inherit" onClick={toggleTheme}>
+              {theme === dayTheme ? <Brightness4Icon /> : <Brightness7Icon />}
             </IconButton>
           </Toolbar>
         </AppBar>
@@ -210,7 +226,9 @@ export default function AdminLayout({ children }) {
       >
         <Box p={2}>
           {notifications.length === 0 ? (
-            <Typography variant="body2" sx={{color: "red"}}>No notifications</Typography>
+            <Typography variant="body2" sx={{ color: "red" }}>
+              No notifications
+            </Typography>
           ) : (
             notifications.map((notification) => (
               <React.Fragment key={notification.ProductID}>
@@ -225,15 +243,16 @@ export default function AdminLayout({ children }) {
                 >
                   {notification.StockQuantity === 0 && (
                     <>
-                      {notification.ProductName} is {notification.StockStatus}
+                      {notification.ProductName} is{" "}
+                      {notification.StockStatus}
                     </>
                   )}
                 </Typography>
                 {notification.StockQuantity <= 5 &&
                   notification.StockQuantity !== 0 && (
                     <Typography variant="body2" sx={{ color: "orange" }}>
-                      {notification.ProductName} - Low stock quantity, Remaining
-                      Stock - {notification.StockQuantity}
+                      {notification.ProductName} - Low stock quantity,
+                      Remaining Stock - {notification.StockQuantity}
                     </Typography>
                   )}
                 <Divider sx={{ my: 1 }} />

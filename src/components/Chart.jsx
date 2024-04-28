@@ -173,8 +173,8 @@ export default function Chart() {
     <React.Fragment>
       <Title>Sales of This {view}</Title>
       <div>
-        <Button onClick={() => handleViewChange("month")}>This Month</Button>
-        <Button onClick={() => handleViewChange("year")}>This Year</Button>
+        <Button onClick={() => handleViewChange("month")} sx={{paddingBottom:"20px"}}>This Month</Button>
+        <Button onClick={() => handleViewChange("year")}  sx={{paddingBottom:"20px"}}>This Year</Button>
       </div>
       <div>
         <TextField
@@ -197,9 +197,11 @@ export default function Chart() {
             shrink: true,
           }}
         />
-        <Button variant="contained" onClick={handleSubmit}>
+        
+        <Button variant="contained" onClick={handleSubmit} sx={{marginLeft:"10px" , marginTop:"1.5px"}} >
           Submit
         </Button>
+        
       </div>
       <div style={{ width: "100%", flexGrow: 1, overflow: "hidden" }}>
         <BarChart

@@ -18,11 +18,12 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Popover from "@mui/material/Popover";
-
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 import { mainListItems } from '../components/salesmanager/listItems';
 
-import {useAuth} from '../hooks/useAuth';
+import { useAuth } from '../hooks/useAuth';
 import ServiceURL from "../constants/url";
 import axios from "axios";
 
@@ -73,24 +74,27 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 const defaultTheme = createTheme();
+const dayTheme = createTheme();
+const nightTheme = createTheme({
+  palette: {
+    mode: 'dark', // Set theme to dark mode
+  },
+});
 
-
-
-export default function SalesManagerLayout({children}) {
-
-  const {logout} = useAuth();
-
+export default function SalesManagerLayout({ children }) {
+  const { logout } = useAuth();
   const [notifications, setNotifications] = React.useState([]);
   const [open, setOpen] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [theme, setTheme] = React.useState(dayTheme); // Initialize with day theme
 
   const toggleDrawer = () => {
     setOpen(!open);
   };
 
   const handleLogout = () => {
-     logout();
-  }
+    logout();
+  };
 
   const handlePopoverOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -119,14 +123,18 @@ export default function SalesManagerLayout({children}) {
   const openPopover = Boolean(anchorEl);
   const popoverId = openPopover ? "notification-popover" : undefined;
 
+  const toggleTheme = () => {
+    setTheme(theme === dayTheme ? nightTheme : dayTheme); // Toggle between day and night themes
+  };
+
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <Box sx={{ display: 'flex' }}>
+    <ThemeProvider theme={theme}>
+      <Box sx={{ display: 'flex', height: '100vh', width: '100vw' }}>
         <CssBaseline />
         <AppBar position="absolute" open={open}>
           <Toolbar
             sx={{
-              pr: '24px', 
+              pr: '24px',
             }}
           >
             <IconButton
@@ -156,9 +164,12 @@ export default function SalesManagerLayout({children}) {
               </Badge>
             </IconButton>
             <IconButton color="inherit" onClick={handleLogout}>
-              <Badge  color="secondary">
+              <Badge color="secondary">
                 <LogoutIcon />
               </Badge>
+            </IconButton>
+            <IconButton color="inherit" onClick={toggleTheme}> {/* Toggle theme button */}
+              {theme === dayTheme ? <Brightness4Icon /> : <Brightness7Icon />}
             </IconButton>
           </Toolbar>
         </AppBar>
@@ -178,8 +189,6 @@ export default function SalesManagerLayout({children}) {
           <Divider />
           <List component="nav">
             {mainListItems}
-            {/* <Divider sx={{ my: 1 }} />
-            {secondaryListItems} */}
           </List>
         </Drawer>
         <Box
@@ -200,61 +209,60 @@ export default function SalesManagerLayout({children}) {
               {/* Recent Orders */}
               <Grid item xs={12}>
                 {/* <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}> */}
-                  { children }
+                {children}
                 {/* </Paper> */}
               </Grid>
             </Grid>
           </Container>
         </Box>
         <Popover
-        id={popoverId}
-        open={openPopover}
-        anchorEl={anchorEl}
-        onClose={handlePopoverClose}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "right",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "right",
-        }}
-      >
-        <Box p={2}>
-          {notifications.length === 0 ? (
-            <Typography variant="body2" sx={{color: "red"}}>No notifications</Typography>
-          ) : (
-            notifications.map((notification) => (
-              <React.Fragment key={notification.ProductID}>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    color:
-                      notification.StockStatus === "Out of Stock"
-                        ? "red"
-                        : "inherit",
-                  }}
-                >
-                  {notification.StockQuantity === 0 && (
-                    <>
-                      {notification.ProductName} is {notification.StockStatus}
-                    </>
-                  )}
-                </Typography>
-                {notification.StockQuantity <= 5 &&
-                  notification.StockQuantity !== 0 && (
-                    <Typography variant="body2" sx={{ color: "orange" }}>
-                      {notification.ProductName} - Low stock quantity, Remaining
-                      Stock - {notification.StockQuantity}
-                    </Typography>
-                  )}
-                <Divider sx={{ my: 1 }} />
-              </React.Fragment>
-            ))
-          )}
-        </Box>
-      </Popover>
-
+          id={popoverId}
+          open={openPopover}
+          anchorEl={anchorEl}
+          onClose={handlePopoverClose}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "right",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "right",
+          }}
+        >
+          <Box p={2}>
+            {notifications.length === 0 ? (
+              <Typography variant="body2" sx={{ color: "red" }}>No notifications</Typography>
+            ) : (
+              notifications.map((notification) => (
+                <React.Fragment key={notification.ProductID}>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color:
+                        notification.StockStatus === "Out of Stock"
+                          ? "red"
+                          : "inherit",
+                    }}
+                  >
+                    {notification.StockQuantity === 0 && (
+                      <>
+                        {notification.ProductName} is {notification.StockStatus}
+                      </>
+                    )}
+                  </Typography>
+                  {notification.StockQuantity <= 5 &&
+                    notification.StockQuantity !== 0 && (
+                      <Typography variant="body2" sx={{ color: "orange" }}>
+                        {notification.ProductName} - Low stock quantity, Remaining
+                        Stock - {notification.StockQuantity}
+                      </Typography>
+                    )}
+                  <Divider sx={{ my: 1 }} />
+                </React.Fragment>
+              ))
+            )}
+          </Box>
+        </Popover>
       </Box>
     </ThemeProvider>
   );
