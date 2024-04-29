@@ -8,6 +8,21 @@
     font-size: 2rem;
 }
 
-.allp{
-    background-color: white;
-}
+.img-container {
+    width: 400px; 
+    height: auto;
+    margin: 0 auto; 
+    overflow: hidden;
+  }
+  
+  .product-image {
+    width: 85%; 
+    height: auto; 
+    object-fit: cover; 
+  }
+  
+  .box {
+    width: 400px;
+    margin: 10px; 
+  }
+  

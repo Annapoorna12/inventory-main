@@ -88,7 +88,8 @@ export default function SupplierLayout({children}) {
   }
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Box sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex', height: '100vh', width: '100vw' }}>
+
         <CssBaseline />
         <AppBar position="absolute" open={open}>
           <Toolbar

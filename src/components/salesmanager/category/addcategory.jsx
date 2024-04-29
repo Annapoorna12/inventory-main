@@ -76,7 +76,7 @@ export default function AddCategory(details) {
               <CloseIcon />
             </IconButton>
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-              Add Customer
+              Add Category
             </Typography>
             <Button autoFocus color="inherit" onClick={handleSubmit}>
                 Add
