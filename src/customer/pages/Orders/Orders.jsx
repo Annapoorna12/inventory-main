@@ -18,7 +18,6 @@ const OrdersPage = () => {
   const [open, setOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem('data'));
     if (userData != null) {
@@ -53,21 +52,19 @@ const OrdersPage = () => {
   }
 
   function formatDateOnly(dateTimeString) {
-  const dateObject = new Date(dateTimeString);
-  const options = {
-    year: 'numeric',
-    month: 'numeric',
-    day: 'numeric'
-  };
-  return dateObject.toLocaleDateString('en-US', options);
-}
+    const dateObject = new Date(dateTimeString);
+    const options = {
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric'
+    };
+    return dateObject.toLocaleDateString('en-US', options);
+  }
 
   const generatePDF = (data) => {
     console.log(data)
     generateInvoicePDF(data)
   };
-
-
 
   const handleClick = (event, productDetails) => {
     setSelectedProduct(productDetails);
@@ -129,9 +126,9 @@ const OrdersPage = () => {
   ];
 
   return (
-    <>
+    <div style={{ maxWidth:"100vw" , margin: "auto" }}>
       <Header />
-      <Card style={{ maxWidth: 800, margin: "auto", marginTop: 20 }}>
+      <Card style={{ marginTop: 20 }}>
         <CardContent>
           <Typography variant="h4" gutterBottom align="center">Order Details</Typography>
           {loading ? (
@@ -156,7 +153,7 @@ const OrdersPage = () => {
         </CardContent>
       </Card>
       <Footer />
-    </>
+    </div>
   );
 };
 

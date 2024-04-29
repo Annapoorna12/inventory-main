@@ -41,27 +41,27 @@ const Allproducts = ({ allProductsData, fetchdata, addToCart, userID }) => {
     <>
       <h1 className="page-header" style={{color:"white"}}>All Products</h1>
       <FormControl variant="outlined" style={{ margin: "auto", width: "20%", textAlign: "center" }}>
-  <Typography variant="subtitle1" gutterBottom style={{ textAlign: "center" }}>
-    Sort by Category
-  </Typography>
-  <Select
-    value={selectedCategory}
-    onChange={(e) => setSelectedCategory(e.target.value)}
-    displayEmpty
-    inputProps={{ "aria-label": "Select category" }}
-    style={{ marginLeft: "200px",width: "50%" }}
-  >
-    <MenuItem value="">
-      None
-    </MenuItem>
-    {/* Display available categories */}
-    {categories.map((category) => (
-      <MenuItem key={category.CategoryID} value={category.CategoryID}>
-        {category.CategoryName}
-      </MenuItem>
-    ))}
-  </Select>
-</FormControl>
+        <Typography variant="subtitle1" gutterBottom style={{ textAlign: "center" }}>
+          Sort by Category
+        </Typography>
+        <Select
+          value={selectedCategory}
+          onChange={(e) => setSelectedCategory(e.target.value)}
+          displayEmpty
+          inputProps={{ "aria-label": "Select category" }}
+          style={{ marginLeft: "200px", width: "50%" }}
+        >
+          <MenuItem value="">
+            None
+          </MenuItem>
+          {/* Display available categories */}
+          {categories.map((category) => (
+            <MenuItem key={category.CategoryID} value={category.CategoryID}>
+              {category.CategoryName}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
       <div className="container grid3">
         {filteredProducts.length === 0 ? (
           <Typography variant="subtitle1" style={{ textAlign: "center" }}>
@@ -71,13 +71,13 @@ const Allproducts = ({ allProductsData, fetchdata, addToCart, userID }) => {
           filteredProducts.map((product, index) => (
             <div className="box" key={index}>
               <div className="product mtop">
-                <div className="img" >
-                  <img src={`../../../../src/uploads/${product.productImage}`} alt="product-image" />
+                <div className="img-container">
+                  <img src={`../../../../src/uploads/${product.productImage}`} alt="product-image" className="product-image" />
                 </div>
                 <div className="product-details">
                   <h3>{product.Name}</h3>
                   <Link to={`/all-products/${product.ProductID}`}>
-                    <h5 >Click here for more Info</h5>
+                    <h5>Click here for more Info</h5>
                   </Link>
                   <div className="rate">
                     <Typography variant="body2" color={product.StockStatus === 'In Stock' ? 'green' : 'red'}>
