@@ -39,6 +39,7 @@ const Allproducts = ({ allProductsData, fetchdata, addToCart, userID }) => {
 
   return (
     <>
+    <div classname='allp' style={{backgroundColor:'white'}}>
       <h1 className="page-header">All Products</h1>
       <FormControl variant="outlined" style={{ margin: "auto", width: "50%", textAlign: "center" }}>
   <Typography variant="subtitle1" gutterBottom style={{ textAlign: "center" }}>
@@ -109,6 +110,7 @@ const Allproducts = ({ allProductsData, fetchdata, addToCart, userID }) => {
             </div>
           ))
         )}
+      </div>
       </div>
     </>
   );
