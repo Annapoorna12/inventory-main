@@ -93,7 +93,7 @@ export default function EditSupplier({ editedCustomer, onClose ,fetchData }) {
       </AppBar>
       <Container maxWidth="sm">
         <Stack spacing={1} justifyContent="space-between" sx={{ my: 3 }}>
-          <Typography variant="h4">SALES MANAGER DETAILS</Typography>
+          <Typography variant="h4">SUPPLIER DETAILS</Typography>
 
           <TextField
             fullWidth

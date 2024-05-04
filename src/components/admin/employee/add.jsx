@@ -103,7 +103,7 @@ export default function AddStaff(details) {
         </AppBar>
         <Container maxWidth="sm">
           <Stack spacing={1} justifyContent="space-between" sx={{ my: 3 }}>
-            <Typography variant="h4">Employee DETAILS</Typography>
+            <Typography variant="h4">EMPLOYEE DETAILS</Typography>
 
             <TextField
               fullWidth
