@@ -56,7 +56,7 @@ const Loginform = () => {
                   {...formik.getFieldProps("username")}
                 />
                 {formik.touched.username && formik.errors.username ? (
-                  <div className="error">{formik.errors.username}</div>
+                  <div className="error" style={{ color: 'red' }}>{formik.errors.username}</div>
                 ) : null}
               </label>
               <label className="label">
@@ -67,7 +67,7 @@ const Loginform = () => {
                   {...formik.getFieldProps("password")}
                 />
                 {formik.touched.password && formik.errors.password ? (
-                  <div className="error">{formik.errors.password}</div>
+                  <div className="error" style={{ color: 'red' }}>{formik.errors.password}</div>
                 ) : null}
               </label>
               {/* <p className="forgot-pass">
