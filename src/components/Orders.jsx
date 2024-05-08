@@ -24,6 +24,9 @@ export default function Orders() {
         }));
         console.log(dataWithIds);
         setSalesData(dataWithIds);
+        const sortedData = dataWithIds.sort((a, b) => new Date(b.OrderDate) - new Date(a.OrderDate));
+
+        setSalesData(sortedData);
       } else {
         setSalesData([]);
       }

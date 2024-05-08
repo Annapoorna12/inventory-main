@@ -28,7 +28,7 @@ import ProductView from "./pages/ProductsView";
 // import ProductPage from "./customer/Products";
 // import LoginPage from "./customer/Login";
 // import RegisterPage from "./customer/register";
-
+import ProfileDisplay from "./customer/Profile";
 
 
 import flashDealsData from "./customer/components/FlashDeals/flashDealsData";
@@ -212,7 +212,7 @@ function App() {
         <Route path="/prodcutview" element={<ProductPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} /> */}
-        {/* <Route path="/profile" element={<ProtectedRouteUser> <ProfileDisplay /></ProtectedRouteUser>} /> */}
+        <Route path="/profile" element={<ProfileDisplay />} />
 
 
       {/* {admin} */}

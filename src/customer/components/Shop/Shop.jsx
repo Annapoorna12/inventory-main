@@ -8,7 +8,7 @@ import axios from "axios";
 
 
 
-const Shop = ({ shopItems, addToCart }) => {
+const Shop = ({ shopItems, addToCart}) => {
   const navigate = useNavigate();
   const [userID ,setUserID] = useState('');
 

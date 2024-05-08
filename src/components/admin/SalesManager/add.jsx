@@ -129,7 +129,7 @@ export default function AddStaff(details) {
             <TextField
               fullWidth
               type="text"
-              label="Customer Name"
+              label="Employee Name"
               variant="outlined"
               {...getFieldProps("CustomerName")}
               error={Boolean(touched.CustomerName && errors.CustomerName)}

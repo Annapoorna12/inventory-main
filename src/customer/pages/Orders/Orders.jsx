@@ -40,6 +40,8 @@ const OrdersPage = () => {
       if (response.data && response.data.orders) {
         const dataWithIds = response.data.orders.map((item, index) => ({ ...item, id: index + 1, ProductDetails: JSON.parse(item.ProductDetails) }));
         setProducts(dataWithIds);
+        const sortedData = dataWithIds.sort((a, b) => new Date(b.OrderDate) - new Date(a.OrderDate)); // Sort by OrderDate in descending order
+      setProducts(sortedData);
       } else {
         setProducts([]);
       }

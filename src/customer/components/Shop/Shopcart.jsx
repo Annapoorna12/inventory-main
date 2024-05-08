@@ -35,7 +35,7 @@ const Shopcart = ({ shopItems, addToCart,userID }) => {
                   <i className="fa fa-star"></i>
                 </div> */}
                 <div className="price">
-                  <h4>{product.Price}</h4>
+                  <h4>Rs. {product.Price}</h4>
                    
                   <button
                     aria-label="Add to cart"

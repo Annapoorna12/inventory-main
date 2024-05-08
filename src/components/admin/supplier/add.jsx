@@ -94,7 +94,7 @@ export default function AddSupplier(details) {
               <CloseIcon />
             </IconButton>
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-              Add Employee
+              Add Supplier
             </Typography>
             <Button autoFocus color="inherit" onClick={handleSubmit}>
                 Add
@@ -103,7 +103,7 @@ export default function AddSupplier(details) {
         </AppBar>
         <Container maxWidth="sm">
           <Stack spacing={1} justifyContent="space-between" sx={{ my: 3 }}>
-            <Typography variant="h4">SALES MANAGER DETAILS</Typography>
+            <Typography variant="h4">SUPPLIER DETAILS</Typography>
 
             <TextField
               fullWidth
@@ -129,7 +129,7 @@ export default function AddSupplier(details) {
             <TextField
               fullWidth
               type="text"
-              label="Customer Name"
+              label="Supplier Name"
               variant="outlined"
               {...getFieldProps("CustomerName")}
               error={Boolean(touched.CustomerName && errors.CustomerName)}
