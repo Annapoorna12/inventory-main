@@ -170,9 +170,9 @@ export default function SupplierPayment() {
             <MenuItem value="PurchaseDate">Purchase Date</MenuItem>
           </Select>
         </FormControl>
-        <Button variant="contained" onClick={handleOpenDialog}>
+        {/* <Button variant="contained" onClick={handleOpenDialog}>
           Add Purchase
-        </Button>
+        </Button> */}
       </Stack>
       {filteredRows.length === 0 ? (
         <Table sx={{ minWidth: 1000 }} aria-label="custom pagination table">
