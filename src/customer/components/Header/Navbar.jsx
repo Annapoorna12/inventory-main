@@ -113,21 +113,21 @@ const Navbar = ({ cartItems }) => {
             
           </div>
           </li>
-          <li>
+          {/* <li>
               <div className="icon f_flex width">
             {/* <Link aria-label="Login page" to="/">
               <i className="fa fa-user icon-circle"></i>
             </Link> */}
             
-            <div className="cart" style={{}}>
+            {/* <div className="cart" style={{}}> */}
             {/* Move the cart div to the right end */}
-              <Link to="/profile">
+              .{/*<Link to="/profile">
                 <i className="fa fa-user icon-circle"></i>
               </Link>
             </div>
             
           </div>
-          </li>
+          </li> */}
           </>
             )   
           }
